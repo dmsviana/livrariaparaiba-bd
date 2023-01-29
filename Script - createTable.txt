@@ -15,8 +15,8 @@ CREATE TABLE Endereco (
 );
 
 CREATE TABLE Cliente (
-  id_pessoa SERIAL PRIMARY KEY,
-  FOREIGN KEY (id_pessoa) REFERENCES Pessoa(id_pessoa)
+  id_pessoa INTEGER PRIMARY KEY,
+  INHERITS (pessoa)
 );
 
 CREATE TABLE Editora (
@@ -60,21 +60,17 @@ CREATE TABLE Estoque (
 );
 
 CREATE TABLE Funcionario (
-  id_pessoa SERIAL PRIMARY KEY,
+  id_pessoa INTEGER PRIMARY KEY,
   cod_funcionario SERIAL UNIQUE NOT NULL,
   tipo VARCHAR(45),	
-  FOREIGN KEY (id_pessoa) REFERENCES Pessoa(id_pessoa)
+  INHERITS (pessoa)
 );
 
 CREATE TABLE Relatorio (
-  id_relatorio SERIAL PRIMARY KEY,
-  total_vendas DECIMAL(10,2) NOT NULL,
-  cod_funcionario INTEGER,
-  id_compra INTEGER,
-  FOREIGN KEY (cod_funcionario) REFERENCES Funcionario(cod_funcionario),
-  FOREIGN KEY (id_compra) REFERENCES Compra(id_compra)
+id_relatorio SERIAL PRIMARY KEY,
+data DATE NOT NULL,
+quantidade INTEGER NOT NULL,
+valor DECIMAL(10,2) NOT NULL,
+id_funcionario INTEGER,
+FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id_pessoa)
 );
-
-
-
-
