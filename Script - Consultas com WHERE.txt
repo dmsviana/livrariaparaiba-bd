@@ -1,0 +1,16 @@
+-- Para selecionar os clientes com telefone cadastrado:
+
+SELECT * FROM Cliente
+WHERE telefone IS NOT NULL;
+
+
+-- Para selecionar os livros lançados após o ano de 2010:
+
+SELECT * FROM Livro
+WHERE ano_lancamento > 2010;
+
+-- Para selecionar as compras com valor total superior a 100 reais:
+
+SELECT * FROM Compra
+WHERE valor > 100;
+

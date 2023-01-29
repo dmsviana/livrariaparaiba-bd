@@ -1,0 +1,44 @@
+-- Inserção de dados na tabela Pessoa
+INSERT INTO Pessoa (nome, telefone) VALUES ('João da Silva', '11999999999');
+INSERT INTO Pessoa (nome, telefone) VALUES ('Maria Pereira', '11988888888');
+INSERT INTO Pessoa (nome, telefone) VALUES ('Maria Dapaz', '11988888888');
+INSERT INTO Pessoa (nome, telefone) VALUES ('José da Silva', '11988888888');
+
+
+-- Inserção de dados na tabela Endereco
+INSERT INTO Endereco (rua, bairro, cep, numero, id_pessoa) VALUES ('Rua dos Bobos', 'Centro', '13000000', 123, 1);
+INSERT INTO Endereco (rua, bairro, cep, numero, id_pessoa) VALUES ('Rua das Flores', 'Bairro dos Anjos', '13111111', 456, 2);
+
+
+-- Inserção de dados na tabela Cliente
+INSERT INTO Cliente (id_pessoa) VALUES (1);
+INSERT INTO Cliente (id_pessoa) VALUES (2);
+
+
+-- Inserção de dados na tabela Editora
+INSERT INTO Editora (nome, email, telefone1, telefone2) VALUES ('Editora A', 'editora_a@email.com', '1188888888', '1177777777');
+INSERT INTO Editora (nome, email, telefone1, telefone2) VALUES ('Editora B', 'editora_b@email.com', '1199999999', '1166666666');
+
+-- Inserção de dados na tabela Livro
+INSERT INTO Livro (nome, ISBN, ano_lancamento, preco, categoria, autor, id_editora) VALUES ('Livro A', '1234567890123', 2022, 20.00, 'Ficção', 'Autor A', 1);
+INSERT INTO Livro (nome, ISBN, ano_lancamento, preco, categoria, autor, id_editora) VALUES ('Livro B', '9876543210987', 2022, 10.00, 'Não-Ficção', 'Autor B', 2);
+
+-- Inserção de dados na tabela Estoque
+INSERT INTO Estoque (quantidade, id_livro, id_editora) VALUES (100, 1, 1);
+INSERT INTO Estoque (quantidade, id_livro, id_editora) VALUES (50, 2, 2);
+
+-- Inserção de dados na tabela Compra
+INSERT INTO Compra (data, quantidade, valor, id_pessoa, id_livro) VALUES ('2022-01-01', 2, 40.00, 1, 1);
+INSERT INTO Compra (data, quantidade, valor, id_pessoa, id_livro) VALUES ('2022-01-02', 1, 20.00, 2, 2);
+
+-- Inserção de dados na tabela Funcionario
+INSERT INTO Funcionario (id_pessoa, cod_funcionario, tipo) VALUES (3, 1, 'Gestor');
+INSERT INTO Funcionario (id_pessoa, cod_funcionario, tipo) VALUES (4, 2, 'Entregador');
+
+-- Inserção de dados na tabela Relatorio
+INSERT INTO Relatorio (total_vendas, cod_funcionario, id_compra) VALUES (40.00, 1, 1);
+INSERT INTO Relatorio (total_vendas, cod_funcionario, id_compra) VALUES (20.00, 2, 2);
+
+
+
+

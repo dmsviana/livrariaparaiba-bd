@@ -1,0 +1,47 @@
+--Para obter o nome do livro e o valor do livro na compra, basta adicionar as colunas desejadas da tabela Livro e usar outra junção INNER JOIN com a tabela Livro:
+
+SELECT Pessoa.nome, Livro.nome, Compra.quantidade, Livro.preco, Compra.valor
+FROM Pessoa
+INNER JOIN Cliente ON Pessoa.id_pessoa = Cliente.id_pessoa
+INNER JOIN Compra ON Cliente.id_pessoa = Compra.id_pessoa
+INNER JOIN Livro ON Compra.id_livro = Livro.id_livro;
+
+
+
+
+-- Para obter o endereço de um cliente, basta adicionar as colunas desejadas da tabela Endereco e usar outra junção INNER JOIN com a tabela Endereco:
+
+SELECT Pessoa.nome, Pessoa.telefone, Endereco.rua, Endereco.bairro, Endereco.cep, Endereco.numero
+FROM Pessoa
+INNER JOIN Cliente ON Pessoa.id_pessoa = Cliente.id_pessoa
+INNER JOIN Endereco ON Cliente.id_pessoa = Endereco.id_pessoa;
+
+
+--Para selecionar os nomes dos clientes e os nomes dos livros comprados:
+
+SELECT Pessoa.nome AS cliente, Livro.nome AS livro
+FROM Compra
+INNER JOIN Pessoa ON Compra.id_pessoa = Pessoa.id_pessoa
+INNER JOIN Livro ON Compra.id_livro = Livro.id_livro;
+
+-- Para selecionar os nomes dos funcionários e os códigos dos relatórios em que eles estão envolvidos:
+
+SELECT Pessoa.nome AS funcionario, Relatorio.cod_funcionario
+FROM Relatorio
+INNER JOIN Funcionario ON Relatorio.cod_funcionario = Funcionario.cod_funcionario
+INNER JOIN Pessoa ON Funcionario.id_pessoa = Pessoa.id_pessoa;
+
+
+-- Para selecionar os nomes das editoras e os nomes dos livros publicados por elas:
+
+SELECT Editora.nome AS editora, Livro.nome AS livro
+FROM Livro
+INNER JOIN Editora ON Livro.id_editora = Editora.id_editora;
+
+--Para selecionar os nomes dos clientes, os nomes dos livros comprados e os nomes das editoras responsáveis por esses livros:
+
+SELECT Pessoa.nome AS cliente, Livro.nome AS livro, Editora.nome AS editora
+FROM Compra
+INNER JOIN Pessoa ON Compra.id_pessoa = Pessoa.id_pessoa
+INNER JOIN Livro ON Compra.id_livro = Livro.id_livro
+INNER JOIN Editora ON Livro.id_editora = Editora.id_editora;
