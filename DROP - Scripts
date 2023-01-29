@@ -1,0 +1,9 @@
+DROP TABLE Funcionario;
+DROP TABLE Estoque;
+DROP TABLE Compra;
+DROP TABLE Livro;
+DROP TABLE Editora;
+DROP TABLE Cliente;
+DROP TABLE Endereco;
+DROP TABLE Pessoa;
+DROP TABLE Relatorio;
