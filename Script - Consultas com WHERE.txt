@@ -1,16 +1,10 @@
--- Selecionar todos os clientes que possuem telefone
-SELECT *
-FROM Pessoa p
-INNER JOIN Cliente c ON p.id_pessoa = c.id_pessoa
-WHERE p.telefone IS NOT NULL;
+--Selecionar o nome e o telefone de todas as pessoas com id_pessoa igual a 1:
+SELECT nome, telefone FROM Pessoa WHERE id_pessoa = 1;
 
--- Selecionar todos os livros da editora "Editora A"
-SELECT *
-FROM Livro l
-INNER JOIN Editora e ON l.id_editora = e.id_editora
-WHERE e.nome = 'Editora A';
 
--- Selecionar todas as compras realizadas em "2020-01-01"
-SELECT *
-FROM Compra c
-WHERE c.data = '2020-01-01';
+--Selecionar o nome, ISBN e ano de lançamento de todos os livros com categoria "Ficção Científica":
+SELECT nome, ISBN, ano_lancamento FROM Livro WHERE categoria = 'Ficção Científica';
+
+
+--Selecionar a data e quantidade de compras realizadas por pessoas com id_pessoa igual a 2:
+SELECT data, quantidade FROM Compra WHERE id_pessoa = 2;
