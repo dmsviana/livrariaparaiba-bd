@@ -11,12 +11,12 @@ CREATE TABLE Endereco (
   cep VARCHAR(9) NOT NULL,
   numero INTEGER NOT NULL,
   id_pessoa INTEGER,
-  FOREIGN KEY (id_pessoa) REFERENCES Pessoa(id_pessoa)
+  FOREIGN KEY (id_pessoa) REFERENCES Pessoa(id_pessoa) ON DELETE CASCADE
 );
 
 CREATE TABLE Cliente (
-  id_pessoa INTEGER PRIMARY KEY,
-  INHERITS (pessoa)
+  INHERIT pessoa,
+  id_pessoa INTEGER PRIMARY KEY 
 );
 
 CREATE TABLE Editora (
@@ -36,7 +36,7 @@ CREATE TABLE Livro (
   categoria VARCHAR(255) NOT NULL,
   autor VARCHAR(255) NOT NULL,
   id_editora INTEGER,
-  FOREIGN KEY (id_editora) REFERENCES Editora(id_editora)
+  FOREIGN KEY (id_editora) REFERENCES Editora(id_editora) ON DELETE CASCADE
 );
 
 CREATE TABLE Compra (
@@ -47,7 +47,7 @@ CREATE TABLE Compra (
   id_pessoa INTEGER,
   id_livro INTEGER,
   FOREIGN KEY (id_pessoa) REFERENCES Pessoa(id_pessoa),
-  FOREIGN KEY (id_livro) REFERENCES Livro(id_livro)
+  FOREIGN KEY (id_livro) REFERENCES Livro(id_livro) ON DELETE CASCADE
 );
 
 CREATE TABLE Estoque (
@@ -56,14 +56,14 @@ CREATE TABLE Estoque (
   id_livro INTEGER,
   id_editora INTEGER,
   FOREIGN KEY (id_livro) REFERENCES Livro(id_livro),
-  FOREIGN KEY (id_editora) REFERENCES Editora(id_editora)
+  FOREIGN KEY (id_editora) REFERENCES Editora(id_editora) ON DELETE CASCADE
 );
 
 CREATE TABLE Funcionario (
+  INHERIT pessoa,
   id_pessoa INTEGER PRIMARY KEY,
   cod_funcionario SERIAL UNIQUE NOT NULL,
-  tipo VARCHAR(45),	
-  INHERITS (pessoa)
+  tipo VARCHAR(45)	
 );
 
 CREATE TABLE Relatorio (
@@ -72,5 +72,5 @@ data DATE NOT NULL,
 quantidade INTEGER NOT NULL,
 valor DECIMAL(10,2) NOT NULL,
 id_funcionario INTEGER,
-FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id_pessoa)
+FOREIGN KEY (id_funcionario) REFERENCES Funcionario(id_pessoa) ON DELETE CASCADE
 );
