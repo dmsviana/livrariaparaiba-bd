@@ -1,13 +1,13 @@
 -- Inserção de dados na tabela Pessoa
-INSERT INTO Pessoa (nome, telefone) VALUES ('João da Silva', '11999999999');
-INSERT INTO Pessoa (nome, telefone) VALUES ('Maria Pereira', '11988888888');
-INSERT INTO Pessoa (nome, telefone) VALUES ('Maria Dapaz', '11988888888');
-INSERT INTO Pessoa (nome, telefone) VALUES ('José da Silva', '11988888888');
+INSERT INTO Pessoa (nome, telefone) VALUES ('Diogo Marcelo', '83996586201');
+INSERT INTO Pessoa (nome, telefone) VALUES ('Gabriel Barbosa', '83996586202');
+INSERT INTO Pessoa (nome, telefone) VALUES ('Giorgian De Arrascaeta', '83996586203');
+INSERT INTO Pessoa (nome, telefone) VALUES ('David Luiz', '83996586204');
 
 
 -- Inserção de dados na tabela Endereco
-INSERT INTO Endereco (rua, bairro, cep, numero, id_pessoa) VALUES ('Rua dos Bobos', 'Centro', '13000000', 123, 1);
-INSERT INTO Endereco (rua, bairro, cep, numero, id_pessoa) VALUES ('Rua das Flores', 'Bairro dos Anjos', '13111111', 456, 2);
+INSERT INTO Endereco (rua, bairro, cep, numero, id_pessoa) VALUES ('Rua Tobias Remigio Gomes', 'Alto São Vicente', '58500000', 379, 1);
+INSERT INTO Endereco (rua, bairro, cep, numero, id_pessoa) VALUES ('Rua Givonaldo Cavalcante', 'Alto São Vicente', '58500000', 456, 2);
 
 
 -- Inserção de dados na tabela Cliente
@@ -16,12 +16,12 @@ INSERT INTO Cliente (id_pessoa) VALUES (2);
 
 
 -- Inserção de dados na tabela Editora
-INSERT INTO Editora (nome, email, telefone1, telefone2) VALUES ('Editora A', 'editora_a@email.com', '1188888888', '1177777777');
-INSERT INTO Editora (nome, email, telefone1, telefone2) VALUES ('Editora B', 'editora_b@email.com', '1199999999', '1166666666');
+INSERT INTO Editora (nome, email, telefone1, telefone2) VALUES ('Chiado Editora', 'editorachiado@email.com', '1188888888', '1177777777');
+INSERT INTO Editora (nome, email, telefone1, telefone2) VALUES ('Editora Aleph', 'editoraaleph@email.com', '1199999999', '1166666666');
 
 -- Inserção de dados na tabela Livro
-INSERT INTO Livro (nome, ISBN, ano_lancamento, preco, categoria, autor, id_editora) VALUES ('Livro A', '1234567890123', 2022, 20.00, 'Ficção', 'Autor A', 1);
-INSERT INTO Livro (nome, ISBN, ano_lancamento, preco, categoria, autor, id_editora) VALUES ('Livro B', '9876543210987', 2022, 10.00, 'Não-Ficção', 'Autor B', 2);
+INSERT INTO Livro (nome, ISBN, ano_lancamento, preco, categoria, autor, id_editora) VALUES ('Preciso te contar um segredo', '1234567890123', 2022, 20.00, 'Ficção', 'Matheus S. Alves', 1);
+INSERT INTO Livro (nome, ISBN, ano_lancamento, preco, categoria, autor, id_editora) VALUES ('Alien', '9876543210987', 2022, 10.00, 'Suspense', 'Alan D. Foster', 2);
 
 -- Inserção de dados na tabela Estoque
 INSERT INTO Estoque (quantidade, id_livro, id_editora) VALUES (100, 1, 1);
@@ -39,31 +39,6 @@ INSERT INTO Funcionario (id_pessoa, cod_funcionario, tipo) VALUES (4, 2, 'Entreg
 INSERT INTO Relatorio (total_vendas, cod_funcionario, id_compra) VALUES (40.00, 1, 1);
 INSERT INTO Relatorio (total_vendas, cod_funcionario, id_compra) VALUES (20.00, 2, 2);
 
--------- UTILIZANDO INHERITS
-
-INSERT INTO Pessoa (nome, telefone) VALUES ('José Silva', '11 99999-9999');
-INSERT INTO Pessoa (nome, telefone) VALUES ('Maria Oliveira', '11 88888-8888');
-
-INSERT INTO Endereco (rua, bairro, cep, numero, id_pessoa) VALUES ('Rua das Flores', 'Jardim', '99999-999', 123, 1);
-INSERT INTO Endereco (rua, bairro, cep, numero, id_pessoa) VALUES ('Rua dos Pássaros', 'Vila', '77777-777', 456, 2);
-
-INSERT INTO Cliente (id_pessoa) VALUES (1);
-INSERT INTO Cliente (id_pessoa) VALUES (2);
-
-INSERT INTO Editora (nome, email, telefone1, telefone2) VALUES ('Editora A', 'editoraA@email.com', '11 22222-2222', '11 22222-2223');
-INSERT INTO Editora (nome, email, telefone1, telefone2) VALUES ('Editora B', 'editoraB@email.com', '11 33333-3333', '11 33333-3334');
-
-INSERT INTO Livro (nome, ISBN, ano_lancamento, preco, categoria, autor, id_editora) VALUES ('Livro 1', '1111111111111', 2020, 19.99, 'Ficção', 'Autor 1', 1);
-INSERT INTO Livro (nome, ISBN, ano_lancamento, preco, categoria, autor, id_editora) VALUES ('Livro 2', '2222222222222', 2021, 29.99, 'Romance', 'Autor 2', 2);
-
-INSERT INTO Compra (data, quantidade, valor, id_pessoa, id_livro) VALUES ('2022-01-01', 1, 19.99, 1, 1);
-INSERT INTO Compra (data, quantidade, valor, id_pessoa, id_livro) VALUES ('2022-01-02', 2, 59.98, 2, 2);
-
-INSERT INTO Estoque (quantidade, id_livro, id_editora) VALUES (10, 1, 1);
-INSERT INTO Estoque (quantidade, id_livro, id_editora) VALUES (5, 2, 2);
-
-INSERT INTO Funcionario (id_pessoa, cod_funcionario, tipo) VALUES (1, 1, 'Vendedor');
-INSERT INTO Funcionario (id_pessoa, cod_funcionario, tipo) VALUES (2, 2, 'Gerente');
 
 
 
