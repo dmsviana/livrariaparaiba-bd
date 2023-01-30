@@ -1,0 +1,29 @@
+UPDATE Pessoa
+SET telefone = '999888777'
+WHERE id_pessoa = 2;
+
+UPDATE Endereco
+SET rua = 'Rua nova'
+WHERE id_endereco = 2;
+
+DELETE FROM Editora
+WHERE id_editora = 2;
+
+DELETE FROM Livro
+WHERE id_livro = 2;
+
+UPDATE Compra
+SET quantidade = 20
+WHERE id_compra = 2;
+
+UPDATE Estoque
+SET quantidade = 50
+WHERE id_estoque = 2;
+
+UPDATE Funcionario
+SET tipo = 'Gerente'
+WHERE id_pessoa = 2;
+
+UPDATE Relatorio
+SET quantidade = 100
+WHERE id_relatorio = 2;
