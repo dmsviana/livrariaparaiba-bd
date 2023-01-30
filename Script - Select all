@@ -1,0 +1,29 @@
+SCRIPT - SELECIONAR TODOS OS REGISTROS
+
+
+SELECT *
+FROM Pessoa;
+
+SELECT *
+FROM Endereco;
+
+SELECT *
+FROM Cliente;
+
+SELECT *
+FROM Editora;
+
+SELECT *
+FROM Livro;
+
+SELECT *
+FROM Compra;
+
+SELECT *
+FROM Estoque;
+
+SELECT *
+FROM Funcionario;
+
+SELECT *
+FROM Relatorio;
