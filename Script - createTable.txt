@@ -1,3 +1,5 @@
+COM HERANÇA ------
+
 CREATE TABLE Pessoa (
   id_pessoa SERIAL PRIMARY KEY,
   nome VARCHAR(255) NOT NULL,
@@ -64,6 +66,87 @@ CREATE TABLE Funcionario (
   id_pessoa INTEGER PRIMARY KEY,
   cod_funcionario SERIAL UNIQUE NOT NULL,
   tipo VARCHAR(45)	
+);
+
+CREATE TABLE Relatorio (
+  id_relatorio SERIAL PRIMARY KEY,
+  total_vendas DECIMAL(10,2) NOT NULL,
+  cod_funcionario INTEGER,
+  id_compra INTEGER,
+  FOREIGN KEY (cod_funcionario) REFERENCES Funcionario(cod_funcionario),
+  FOREIGN KEY (id_compra) REFERENCES Compra(id_compra)
+);
+
+
+
+
+SEM HERANÇA ----
+CREATE TABLE Pessoa (
+  id_pessoa SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  telefone VARCHAR(15)
+);
+
+CREATE TABLE Endereco (
+  id_endereco SERIAL PRIMARY KEY,
+  rua VARCHAR(255) NOT NULL,
+  bairro VARCHAR(255) NOT NULL,
+  cep VARCHAR(9) NOT NULL,
+  numero INTEGER NOT NULL,
+  id_pessoa INTEGER,
+  FOREIGN KEY (id_pessoa) REFERENCES Pessoa(id_pessoa)
+);
+
+CREATE TABLE Cliente (
+  id_pessoa SERIAL PRIMARY KEY,
+  FOREIGN KEY (id_pessoa) REFERENCES Pessoa(id_pessoa)
+);
+
+CREATE TABLE Editora (
+  id_editora SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  telefone1 VARCHAR(15) NOT NULL,
+  telefone2 VARCHAR(15)
+);
+
+CREATE TABLE Livro (
+  id_livro SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  ISBN VARCHAR(13) NOT NULL,
+  ano_lancamento INTEGER NOT NULL,
+  preco DECIMAL(10,2) NOT NULL,
+  categoria VARCHAR(255) NOT NULL,
+  autor VARCHAR(255) NOT NULL,
+  id_editora INTEGER,
+  FOREIGN KEY (id_editora) REFERENCES Editora(id_editora)
+);
+
+CREATE TABLE Compra (
+  id_compra SERIAL PRIMARY KEY,
+  data DATE NOT NULL,
+  quantidade INTEGER NOT NULL,
+  valor DECIMAL(10,2) NOT NULL,
+  id_pessoa INTEGER,
+  id_livro INTEGER,
+  FOREIGN KEY (id_pessoa) REFERENCES Pessoa(id_pessoa),
+  FOREIGN KEY (id_livro) REFERENCES Livro(id_livro)
+);
+
+CREATE TABLE Estoque (
+  id_estoque SERIAL PRIMARY KEY,
+  quantidade INTEGER NOT NULL,
+  id_livro INTEGER,
+  id_editora INTEGER,
+  FOREIGN KEY (id_livro) REFERENCES Livro(id_livro),
+  FOREIGN KEY (id_editora) REFERENCES Editora(id_editora)
+);
+
+CREATE TABLE Funcionario (
+  id_pessoa SERIAL PRIMARY KEY,
+  cod_funcionario SERIAL UNIQUE NOT NULL,
+  tipo VARCHAR(45),	
+  FOREIGN KEY (id_pessoa) REFERENCES Pessoa(id_pessoa)
 );
 
 CREATE TABLE Relatorio (
