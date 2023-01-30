@@ -1,16 +1,16 @@
--- Para selecionar os clientes com telefone cadastrado:
+-- Selecionar todos os clientes que possuem telefone
+SELECT *
+FROM Pessoa p
+INNER JOIN Cliente c ON p.id_pessoa = c.id_pessoa
+WHERE p.telefone IS NOT NULL;
 
-SELECT * FROM Cliente
-WHERE telefone IS NOT NULL;
+-- Selecionar todos os livros da editora "Editora A"
+SELECT *
+FROM Livro l
+INNER JOIN Editora e ON l.id_editora = e.id_editora
+WHERE e.nome = 'Editora A';
 
-
--- Para selecionar os livros lançados após o ano de 2010:
-
-SELECT * FROM Livro
-WHERE ano_lancamento > 2010;
-
--- Para selecionar as compras com valor total superior a 100 reais:
-
-SELECT * FROM Compra
-WHERE valor > 100;
-
+-- Selecionar todas as compras realizadas em "2020-01-01"
+SELECT *
+FROM Compra c
+WHERE c.data = '2020-01-01';
