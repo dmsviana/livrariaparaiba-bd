@@ -16,7 +16,7 @@ CREATE TABLE Endereco (
 
 CREATE TABLE Cliente (
   INHERIT pessoa,
-  id_pessoa INTEGER PRIMARY KEY 
+  id_pessoa SERIAL PRIMARY KEY 
 );
 
 CREATE TABLE Editora (
