@@ -1,0 +1,17 @@
+Subconsulta para retornar o nome das pessoas que são clientes:
+
+SELECT nome
+FROM Pessoa
+WHERE id_pessoa IN (SELECT id_pessoa FROM Cliente);
+
+Subconsulta para retornar o nome dos livros que foram comprados por uma pessoa específica:
+
+SELECT nome
+FROM Livro
+WHERE id_livro IN (SELECT id_livro FROM Compra WHERE id_pessoa = [id_pessoa]);
+
+Subconsulta para retornar o nome das editoras que têm livros disponíveis no estoque:
+
+SELECT nome
+FROM Editora
+WHERE id_editora IN (SELECT id_editora FROM Estoque);
